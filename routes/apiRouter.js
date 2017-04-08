@@ -4,11 +4,11 @@ let helpers = require('../config/helpers.js')
 
 let User = require('../db/schema.js').User
 
-  
+
   apiRouter
     .get('/users', function(req, res){
       User.find(req.query , "-password", function(err, results){
-        if(err) return res.json(err) 
+        if(err) return res.json(err)
         res.json(results)
       })
     })
@@ -16,7 +16,7 @@ let User = require('../db/schema.js').User
   apiRouter
     .get('/users/:_id', function(req, res){
       User.findById(req.params._id, "-password", function(err, record){
-        if(err || !record ) return res.json(err) 
+        if(err || !record ) return res.json(err)
         res.json(record)
       })
     })
@@ -42,7 +42,7 @@ let User = require('../db/schema.js').User
           msg: `record ${req.params._id} successfully deleted`,
           _id: req.params._id
         })
-      })  
+      })
     })
 
     // Routes for a Model(resource) should have this structure
