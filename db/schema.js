@@ -74,10 +74,10 @@ const attendanceSchema = new mongoose.Schema(
 //MONGOOSE SCHEMAS:
 module.exports =
 { User: mongoose.model('User', usersSchema)
-, userDetailSchema: mongoose.model('UserDetail', userDetailSchema)
-, itemSchema: mongoose.model('Item', itemSchema)
-, eventSchema: mongoose.model('Event', eventSchema)
-, eventDetailSchema: mongoose.model('EventDetail', eventDetailSchema)
-, attendanceSchema: mongoose.model('Attendance', attendanceSchema)
+, UserDetail: mongoose.model('UserDetail', userDetailSchema)
+, Item: mongoose.model('Item', itemSchema)
+, Event: mongoose.model('Event', eventSchema)
+, EventDetail: mongoose.model('EventDetail', eventDetailSchema)
+, Attendance: mongoose.model('Attendance', attendanceSchema)
 }
 

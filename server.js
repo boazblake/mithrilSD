@@ -20,7 +20,11 @@ const connectToDB = require('./config/db-setup.js').connectToDB
 // Import Routers
 let indexRouter = require('./routes/indexRouter.js')
 let authRouter = require('./routes/authRouter.js')
-let apiRouter = require('./routes/apiRouter.js')
+let userRouter = require('./routes/api/userRouter')
+let userDetailsRouter = require('./routes/api/userDetailRouter')
+let itemRouter = require('./routes/api/itemRouter')
+let eventRouter = require('./routes/api/eventRouter')
+let attendanceRouter = require('./routes/api/attendanceRouter')
 
 // Load DB User Model (for appAuthentication configuration)
 let User = require('./db/schema.js').User
@@ -46,7 +50,7 @@ app.set('view engine', 'html');
 connectToDB(PROJECT_NAME)
 
 // =========
-// APPLICATION MIDDLEWARE 
+// APPLICATION MIDDLEWARE
 // =========
 app.use( express.static( __dirname + '/dist/assets') );
 app.use( bodyParser.json() );
@@ -58,14 +62,18 @@ app.use( passport.session() );
 appAuthentication(User)
 app.use( appMiddleWare.cookifyUser )
 app.use( appMiddleWare.parseQuery )
-// 
+//
 // =========
 // ROUTERS
 // =========
 
 app.use( '/', indexRouter )
 app.use( '/auth', authRouter )
-app.use( '/api', apiRouter )
+app.use( '/api/user', userRouter )
+app.use( '/api/userdetail', userDetailsRouter )
+app.use( '/api/item', itemRouter )
+app.use( '/api/event', eventRouter )
+app.use( '/api/attendance', attendanceRouter )
 
 app.use(appMiddleWare.errorHandler);
 
