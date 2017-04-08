@@ -21,12 +21,12 @@ UserAuthModel.register = function(newUserData) {
 }
 
 UserAuthModel.login = function(email, password) {
-	if(!email || !password || email === '' || password === '') {  
-		throw new Error("User.login(«email», «password») method needs strings for email, password arguments") 
+	if(!email || !password || email === '' || password === '') {
+		throw new Error("User.login(«email», «password») method needs strings for email, password arguments")
 	}
 
-	if(typeof email !== 'string' || typeof password !== 'string' ) {  
-		throw new Error("User.login(«email», «password») email + password arguments should both be strings") 
+	if(typeof email !== 'string' || typeof password !== 'string' ) {
+		throw new Error("User.login(«email», «password») email + password arguments should both be strings")
 	}
 
 	return $.ajax({
